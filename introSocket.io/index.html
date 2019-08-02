@@ -1,0 +1,17 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script>
+  const socket = io("ws://localhost:3000");
+  console.log(socket);
+
+  socket.on("connect", data => {
+    console.log(data);
+    socket.on("whatIsUpClient", data => {
+      console.log(data);
+    });
+    socket.emit("whatIsUpServer", { data: "here is the data server" });
+  });
+  socket.onmessage = event => {
+    console.log(event);
+    console.log(event.data);
+  };
+</script>

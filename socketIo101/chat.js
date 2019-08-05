@@ -13,4 +13,4 @@ io.on("connection", socket => {
     console.log(data);
     io.emit("newMessageToClient", data);
   });
-});
+}

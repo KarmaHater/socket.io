@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const socketIO = require("socket.io");
-app.use(express.static(__dirname + "/public"));
 
+let namespace = require("./data/namespaces");
+app.use(express.static(__dirname + "/public"));
+  
 const expressServer = app.listen(9000);
 
 const io = socketIO(expressServer);
